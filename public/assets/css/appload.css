@@ -1,0 +1,7 @@
+.error-class {
+    border: 1px solid darkred;
+}
+
+.success-class {
+    border: 1px solid forestgreen;
+}
