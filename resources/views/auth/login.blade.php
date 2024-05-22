@@ -2,7 +2,7 @@
 @section('auth-content')
 
         <!-- Login Form Start -->
-        <div class="col-lg-8 col-md-8 col-12 align-self-center my-10 px-3">
+        <div class="col-lg-12 col-md-12 col-12 align-self-center my-10 px-3">
             <div class="login-form">
 
                 <div class="head">
@@ -37,10 +37,5 @@
             </div>
         </div><!-- Login Form End -->
 
-        <!-- Login Form BG Image Start -->
-        <div class="col-lg-4 col-md-4 col-12 d-none d-lg-block">
-            <div class="authentication-bg-image"
-                 style="background-image: url({{ asset('assets/images/authentication/login-bg.jpg') }});"></div>
-        </div>
         <!-- Login Form BG Image End -->
 @endsection

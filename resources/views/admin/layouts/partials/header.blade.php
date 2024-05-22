@@ -3,12 +3,14 @@
         <div class="row justify-content-between align-items-center">
             <!-- Header Logo (Header Left) Start -->
             <div class="header-logo col-auto d-none d-sm-flex">
-                <a href="{{ route('admin.dashboard') }}">
+                <a href="index.html">
                             <span class="logo-icon">
-						<H1>COP29</H1>
+						<img src="{{ asset('assets/images/logo/gradient_black.png') }}" alt="Logo Icon" />
+						<img src="{{ asset('assets/images/logo/gradient_black.png') }}" class="light" alt="Logo Icon" />
 					</span>
                     <span class="logo-default">
-						<H1>COP29</H1>
+						<img src="{{ asset('assets/images/logo/gradient_black.png') }}" alt="Logo Default" />
+						<img src="{{ asset('assets/images/logo/gradient_black.png') }}" class="light" alt="Logo Default" />
 					</span>
                 </a>
             </div>
@@ -20,19 +22,6 @@
                     <!-- SideNav Toggle & Search Start -->
                     <div class="d-flex col-auto">
                         <!-- SideNav Toggle Start -->
-                        <button class="sidenav-toggle d-lg-none"><i data-feather="menu"></i></button>
-                        <!-- SideNav Toggle End -->
-
-                        <!-- Search Start -->
-                        <div class="header-search">
-                            <button class="header-search-toggle d-flex d-md-none"><i data-feather="search"></i></button>
-                            <div class="header-search-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Search Something..." />
-                                    <button class="search-submit"><i data-feather="search"></i></button>
-                                </form>
-                            </div>
-                        </div>
                         <!-- Search End -->
                     </div>
                     <!-- SideNav Toggle & Search End -->
@@ -96,51 +85,10 @@
                             </li>
                             <!-- Notification End -->
 
-                            <!-- Message Start -->
-                            <li class="nav-item dropdown message">
-                                <a class="nav-link" href="#" data-bs-toggle="dropdown">
-                                    <span class="icon"><i data-feather="message-square"></i></span>
-                                    <span class="badge badge-dot badge-success">badge</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-item py-2">
-                                        <div class="media">
-                                            <div class="media-thumb small"><img src="{{ asset('assets/images/message/thumb-1.jpg') }}" alt="" /></div>
-                                            <div class="media-body">
-                                                <h5 class="media-title">Tyler <span class="small">10 min ago</span></h5>
-                                                <p class="media-text">Product inquiry</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item py-2">
-                                        <div class="media">
-                                            <div class="media-thumb small"><img src="{{ asset('assets/images/message/thumb-2.jpg') }}" alt="" /></div>
-                                            <div class="media-body">
-                                                <h5 class="media-title">James <span class="small">1 hours ago</span></h5>
-                                                <p class="media-text">Hi buddy, are you coming to the reunion</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item py-2">
-                                        <div class="media">
-                                            <div class="media-thumb small"><img src="{{ asset('assets/images/message/thumb-3.jpg') }}" alt="" /></div>
-                                            <div class="media-body">
-                                                <h5 class="media-title">Louis <span class="small">1 hours ago</span></h5>
-                                                <p class="media-text">Client meeting</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- Message End -->
-
                             <!-- User Start -->
                             <li class="nav-item dropdown user">
                                 <a class="nav-link" href="#" data-bs-toggle="dropdown">
-                                    <span class="name">Mr. Doe</span>
-                                    <span class="thumbnail">
-										<img src="{{ asset('assets/images/user/thumb-small.jpg') }}" alt="User Thumbnail Image" />
-									</span>
+                                    <span class="name">{{ \Illuminate\Support\Facades\Auth::user()->full_name }}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="#"><i data-feather="user"></i> Profile</a>

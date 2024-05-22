@@ -5,8 +5,8 @@
 
     <div class="col-12 mb-6">
         <div class="card">
-            <div class="card-head border-bottom">export excel
-            </div>
+{{--            <div class="card-head border-bottom">export excel--}}
+{{--            </div>--}}
             <div class="card-body">
                 <table class="table table-bordered data-table registrations-table">
                     <thead>
@@ -20,7 +20,6 @@
                         <th>Represent</th>
                         <th>Email</th>
                         <th>Confirmation status</th>
-                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -40,11 +39,6 @@
                                            type="checkbox" data-registration-id="{{ $registration->id }}"
                                            id="exampleSwitch6" @if($registration->confirmed_status) checked @endif>
                                 </div>
-                            </td>
-                            <td>
-                                <a href="#" class="align-items-center"
-                                   data-clipboard-text="fa fa-eye"><span class="text-primary h3"><i
-                                            class="fa fa-eye"></i></span></a>
                             </td>
                         </tr>
                     @endforeach

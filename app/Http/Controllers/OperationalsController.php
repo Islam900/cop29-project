@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Operationals;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +15,7 @@ class OperationalsController extends Controller
     public function index()
     {
         $operationals = Auth::user()->operationals;
-        return view('appeals.index', compact('operationals'));
+        return view('appeals.operationals.index', compact('operationals'));
     }
 
     /**
@@ -21,7 +23,7 @@ class OperationalsController extends Controller
      */
     public function create()
     {
-        //
+        return view('appeals.operationals.create');
     }
 
     /**
@@ -29,7 +31,27 @@ class OperationalsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $data['custom_clearance'] = isset($request->customs_clearance) && $request->customs_clearance == "on" ? "Yes" : "No";
+        if($request->hasFile('data_sheet'))
+        {
+            $file = $request->file('data_sheet');
+            $destinationPath = public_path('assets/files/operationals');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move($destinationPath, $fileName);
+            $data['data_sheet'] = $fileName;
+        }
+        $save = Operationals::create($data);
+
+        if($save) {
+            return redirect()->route('user.operationals.index')->with('success', 'Data inserted successfully');
+        } else {
+            return redirect()->route('user.operationals.index')->with('error', 'Error! Please try again later or contact our support team');
+        }
+
     }
 
     /**

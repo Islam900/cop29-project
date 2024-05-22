@@ -5,12 +5,12 @@
             <div class="header-logo col-auto d-none d-sm-flex">
                 <a href="index.html">
                             <span class="logo-icon">
-						<img src="{{ asset('assets/images/logo/logo-icon.png') }}" alt="Logo Icon" />
-						<img src="{{ asset('assets/images/logo/logo-icon-light.png') }}" class="light" alt="Logo Icon" />
+						<img src="{{ asset('assets/images/logo/gradient_black.png') }}" alt="Logo Icon" />
+						<img src="{{ asset('assets/images/logo/gradient_black.png') }}" class="light" alt="Logo Icon" />
 					</span>
                     <span class="logo-default">
-						<img src="{{ asset('assets/images/logo/logo-default.png') }}" alt="Logo Default" />
-						<img src="{{ asset('assets/images/logo/logo-default-light.png') }}" class="light" alt="Logo Default" />
+						<img src="{{ asset('assets/images/logo/gradient_black.png') }}" alt="Logo Default" />
+						<img src="{{ asset('assets/images/logo/gradient_black.png') }}" class="light" alt="Logo Default" />
 					</span>
                 </a>
             </div>
@@ -22,19 +22,7 @@
                     <!-- SideNav Toggle & Search Start -->
                     <div class="d-flex col-auto">
                         <!-- SideNav Toggle Start -->
-                        <button class="sidenav-toggle d-lg-none"><i data-feather="menu"></i></button>
-                        <!-- SideNav Toggle End -->
 
-                        <!-- Search Start -->
-                        <div class="header-search">
-                            <button class="header-search-toggle d-flex d-md-none"><i data-feather="search"></i></button>
-                            <div class="header-search-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Search Something..." />
-                                    <button class="search-submit"><i data-feather="search"></i></button>
-                                </form>
-                            </div>
-                        </div>
                         <!-- Search End -->
                     </div>
                     <!-- SideNav Toggle & Search End -->

@@ -60,7 +60,7 @@
 <!--Plugins JS-->
 <script src="{{ asset('assets/js/plugins/simplebar.min.js') }}"></script>
 <!-- Data Table Script -->
-<script src="{{ asset('assets/js/plugins/datatables.min.js') }}"></script>
+
 <script>
     $('.order-list-table').each(function() {
         var $this = $(this),
@@ -95,6 +95,18 @@
 
 <!--Main JS (Common Activation Codes)-->
 <script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/datatables.min.js') }}"></script>
+<script>
+    $('.data-table').DataTable({
+        responsive: true,
+        language: {
+            paginate: {
+                previous: '',
+                next: ''
+            }
+        }
+    });
+</script>
 @yield('js-code')
 </body>
 </html>

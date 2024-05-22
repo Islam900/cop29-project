@@ -14,6 +14,7 @@ class Dsngs extends Model
         'period',
         'start_date',
         'end_date',
+        'zone',
         'vehicle_mounted',
         'vehicle_make',
         'vehicle_model',

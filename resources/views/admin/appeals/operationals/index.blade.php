@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 @section('title', 'COP29 - Operationals')
 @section('content')
 
@@ -6,18 +6,10 @@
         <div class="card">
             <div class="card-head border-bottom d-flex justify-content-between align-items-center">
 {{--                <button class="btn btn-warning">EXPORT EXCEL</button>--}}
-                <a href="{{ route('user.operationals.create') }}">
-                    <button class="btn btn-success">
-                    <span>
-                        <i class="fa fa-plus"></i>
-                        Create new
-                    </span>
-                    </button>
-                </a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered data-table registrations-table">
+                    <table class="table table-bordered data-table">
                         <thead>
                         <tr>
                             <th>#</th>
@@ -71,6 +63,7 @@
                                 <td>{{ $oper->customs_clearance }}</td>
                                 <td>{{ $oper->comments }}</td>
                                 <td>{{ $oper->data_sheet }}</td>
+                                <td>{{ $oper->data_sheet }}</td>
                             </tr>
                         @empty
                             <tr>
@@ -93,17 +86,6 @@
 
 @section('js-code')
     <script>
-        $(document).ready(function () {
-            $('.registrations-table').DataTable({
-                responsive: true,
-                language: {
-                    paginate: {
-                        previous: '',
-                        next: ''
-                    }
-                }
-            });
-        })
 
         @if (session('success'))
         const Toast = Swal.mixin({

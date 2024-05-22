@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('period');
             $table->date('start_date');
             $table->date('end_date');
+            $table->string('zone');
             $table->string('vehicle_mounted');
             $table->string('vehicle_make');
             $table->string('vehicle_model');

@@ -1,49 +1,62 @@
-@extends('layouts.app')
+@extends('auth.layouts.main')
+@section('auth-content')
+    <!-- Login Form Start -->
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Confirm Password') }}</div>
+    <div class="col-lg-12 col-md-12 col-12 align-self-center my-10 px-3">
+        <div class="login-form" id="enter-otp-section">
 
-                <div class="card-body">
-                    {{ __('Please confirm your password before continuing.') }}
-
-                    <form method="POST" action="{{ route('password.confirm') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Confirm Password') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div class="head">
+                <h3 class="title"><span class="fw-700">{{ env('APP_NAME') }}</span> <br> Enter OTP Code</h3>
             </div>
+            <form action="{{ route('new-password') }}" method="post" id="checkOtp">
+                @csrf
+                <div class="row mb-n6">
+                    <div class="col-3">
+                        <input type="number" name="otp1" maxlength="1" class="form-control">
+                    </div>
+                    <div class="col-3">
+                        <input type="number" name="otp2" maxlength="1" class="form-control">
+                    </div>
+                    <div class="col-3">
+                        <input type="number" name="otp3" maxlength="1" class="form-control">
+                    </div>
+                    <div class="col-3">
+                        <input type="number" name="otp4" maxlength="1" class="form-control">
+                    </div>
+                    <div class="col-12 mb-6 mt-6">
+                        <button type="submit" class="btn btn-primary w-100">Confirm</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
-</div>
+
+    </div><!-- Login Form End -->
+
+    <!-- Login Form BG Image End -->
+@endsection
+
+@section('js-code')
+
+    <script>
+
+        const inputs = document.querySelectorAll('.form-control');
+        inputs.forEach(input => {
+            input.addEventListener('input', function (e) {
+                const value = e.target.value;
+
+                if (value.length > 1) {
+                    e.target.value = value.charAt(0);
+                }
+
+                if(value){
+                    const formElements = Array.from(document.querySelectorAll('input, button, select, textarea, a[href]'));
+                    const currentIndex = formElements.indexOf(e.target);
+                    if (currentIndex > -1 && currentIndex < formElements.length - 1) {
+                        formElements[currentIndex + 1].focus();
+                    }
+                }
+            });
+        })
+    </script>
+
 @endsection

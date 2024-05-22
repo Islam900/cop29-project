@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    if(document.getElementById('loginForm')){
+    if (document.getElementById('loginForm')) {
         document.getElementById('loginForm').addEventListener('submit', function (event) {
             console.log(1)
             event.preventDefault();
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             text: data.message,
                             showConfirmButton: true,
                         }).then((result) => {
-                            if(result.isConfirmed){
+                            if (result.isConfirmed) {
                                 location.reload();
                             }
                         });
@@ -67,8 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if(document.getElementById('registerForm'))
-    {
+    if (document.getElementById('registerForm')) {
         document.getElementById('registerForm').addEventListener('submit', function (event) {
             event.preventDefault();
             const formData = new FormData(event.target);
@@ -93,8 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            if(formData.get('password').trim() != formData.get('confirm_password').trim())
-            {
+            if (formData.get('password').trim() != formData.get('confirm_password').trim()) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -124,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             text: data.message,
                             showConfirmButton: true,
                         }).then((result) => {
-                            if(result.isConfirmed){
+                            if (result.isConfirmed) {
                                 location.href = data.redirect_to;
                             }
                         });
@@ -152,12 +150,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if(document.getElementById('sendPasswordToEmail')){
+    if (document.getElementById('sendPasswordToEmail')) {
         document.getElementById('sendPasswordToEmail').addEventListener('submit', function (event) {
             event.preventDefault();
             const formData = new FormData(event.target);
             console.log(formData);
-            if (!formData.get('email').trim()) {
+            if (!formData.get('email_address').trim()) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -186,8 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             text: data.message,
                             showConfirmButton: true,
                         }).then((result) => {
-                            if(result.isConfirmed)
-                            {
+                            if (result.isConfirmed) {
                                 location.href = data.redirect_to
                             }
                         });
@@ -203,6 +200,129 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .catch(error => {
                     console.error('There has been a problem with your fetch operation:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                });
+        })
+    }
+
+    if (document.getElementById('checkOtp')) {
+        document.getElementById('checkOtp').addEventListener('submit', function (event) {
+
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            if (!formData.get('otp1') || !formData.get('otp2') || !formData.get('otp3') || !formData.get('otp4')) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill otp code!',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+                return;
+            }
+
+            fetch(this.action, {
+                method: this.method,
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status) {
+                        location.href = data.redirect_to;
+                    } else {
+                        Swal.fire({
+                            icon: data.icon,
+                            title: 'Oops...',
+                            text: data.message,
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                });
+        })
+    }
+
+    if (document.getElementById('updatePassword')) {
+        document.getElementById('updatePassword').addEventListener('submit', function (event) {
+
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            if (!formData.get('password') || !formData.get('confirm_password')) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill otp code!',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+                return;
+            }
+
+            if (formData.get('password') != formData.get('confirm_password')) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Passwords are not same!',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+                return;
+            }
+
+            fetch(this.action, {
+                method: this.method,
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status) {
+                        Swal.fire({
+                            icon: data.icon,
+                            title: 'Success',
+                            text: data.message,
+                            showConfirmButton: true,
+                        }).then((result) => {
+                            if(result.isConfirmed){
+                                location.href = data.redirect_to
+                            }
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: data.icon,
+                            title: 'Oops...',
+                            text: data.message,
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                })
+                .catch(error => {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',

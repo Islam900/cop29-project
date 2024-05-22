@@ -30,14 +30,21 @@ Route::get('/', function () {
 Auth::routes();
 Route::post('reset-password', [ResetPasswordController::class, 'resetPassword'])->name('resetPassword');
 
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_role:admin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'cop_29_middleware:admin'])->group(function () {
    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
    Route::resource('users', UsersController::class);
+   Route::resource('operationals', \App\Http\Controllers\Admin\OperationalsController::class);
+   Route::resource('dsngs', \App\Http\Controllers\Admin\DsngsController::class);
 });
 
 
-Route::prefix('user')->name('user.')->middleware(['auth', 'check_user_role:user'])->group(function () {
+Route::prefix('user')->name('user.')->middleware(['auth', 'cop_29_middleware:user'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('/operationals', \App\Http\Controllers\OperationalsController::class);
     Route::resource('/dsngs', \App\Http\Controllers\DsngsController::class);
 });
+
+Route::get('check-otp', [ResetPasswordController::class, 'check_otp'])->name('check-otp');
+Route::post('new-password', [ResetPasswordController::class, 'new_password'])->name('new-password');
+Route::get('set-new-password', [ResetPasswordController::class, 'set_new_password'])->name('set-new-password');
+Route::post('update-password', [ResetPasswordController::class, 'update_password'])->name('update-password');

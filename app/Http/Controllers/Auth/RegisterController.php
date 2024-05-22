@@ -21,6 +21,9 @@ class RegisterController extends Controller
         $emailExists = User::where('email_address', $request->email)->exists();
         $data = $request->all();
         $data['password'] = Hash::make($request->password);
+        if ($data['represent'] == "Other") {
+            $data['represent'] = $data['represent_specify'];
+        }
         $data['type'] = 'user';
         if (!$emailExists) {
             $user = User::create($data);

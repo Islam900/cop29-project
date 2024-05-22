@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/jqvmap.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/datatables.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins/dropify.min.css') }}" />
 </head>
 <body>
 <div class="main-wrapper">
@@ -26,7 +27,12 @@
 
 
     <!-- Content Body Start -->
-    @yield('content')
+    <div class="content-body">
+        <!-- Page Headings Start -->
+        <!-- Page Headings End -->
+
+        @yield('content')
+    </div>
     <!-- Content Body End -->
 
     <!-- Footer Section Start -->
@@ -39,16 +45,13 @@
 ============================================ -->
 <!-- Global Vendor, plugins JS -->
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Vendor JS -->
 <script src="{{ asset('assets/js/vendor/vendor.min.js') }}"></script>
 <!--Plugins JS-->
 <script src="{{ asset('assets/js/plugins/simplebar.min.js') }}"></script>
 
 <!-- Plugins & Activation JS For Only This Page -->
-
-<!-- Apex Chart Script -->
-<script src="{{ asset('assets/js/plugins/chart/apexcharts/apexcharts.min.js') }}"></script>
-<script src="{{ asset('assets/js/plugins/chart/apexcharts/homeOne.js') }}"></script>
 
 <!-- VMap Script -->
 <script src="{{ asset('assets/js/plugins/jvmap/jquery.vmap.min.js') }}"></script>
@@ -113,5 +116,10 @@
 
 <!--Main JS (Common Activation Codes)-->
 <script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/dropify.min.js') }}"></script>
+<script>
+    $(".dropify").dropify();
+</script>
+@yield('js-code')
 </body>
 </html>
