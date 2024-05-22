@@ -70,6 +70,14 @@ class LoginController extends Controller
                     'redirect_to' => route('admin.dashboard')
                 ]);
             }
+            elseif ($user->type == 'dri') {
+                return response()->json([
+                    'status' => true,
+                    'icon' => 'success',
+                    'message' => 'Login Successful',
+                    'redirect_to' => route('dri.dashboard')
+                ]);
+            }
         }
         return response()->json([
             'status' => false,

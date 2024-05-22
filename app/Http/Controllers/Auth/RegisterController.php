@@ -31,7 +31,6 @@ class RegisterController extends Controller
             return response()->json([
                 'message' => 'Registration completed successfully',
                 'icon' => 'success',
-                'redirect_to' => route('login'),
                 'status' => true
             ]);
         } else {

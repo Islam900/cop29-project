@@ -120,12 +120,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             icon: data.icon,
                             title: 'Success!',
                             text: data.message,
-                            showConfirmButton: true,
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                location.href = data.redirect_to;
-                            }
-                        });
+                            showConfirmButton: false,
+                        })
                     } else {
                         Swal.fire({
                             icon: data.icon,
@@ -135,6 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             timer: 3000
                         });
                     }
+
+                    document.getElementById('registerForm').reset();
                 })
                 .catch(error => {
                     console.error('There has been a problem with your fetch operation:', error);

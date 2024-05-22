@@ -14,7 +14,6 @@ class Dsngs extends Model
         'period',
         'start_date',
         'end_date',
-        'zone',
         'vehicle_mounted',
         'vehicle_make',
         'vehicle_model',
@@ -34,7 +33,7 @@ class Dsngs extends Model
         'coder_freq_max',
         'customs_clearance',
         'comments',
-        'data_sheet'
+        'read_status'
     ];
 
     public function user()

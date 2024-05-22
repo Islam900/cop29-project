@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dri;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dsngs;
+use App\Models\Operationals;
 use Illuminate\Http\Request;
 
-class DsngsController extends Controller
+class OperationalsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $dsngs = Dsngs::all();
-        return view('admin.appeals.dsngs.index', compact('dsngs'));
+        $operationals = Operationals::all();
+        return view('dri.appeals.operationals.index', compact('operationals'));
     }
 
     /**

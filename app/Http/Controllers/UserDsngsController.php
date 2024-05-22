@@ -6,7 +6,7 @@ use App\Models\Dsngs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class DsngsController extends Controller
+class UserDsngsController extends Controller
 {
     /**
      * Display a listing of the resource.

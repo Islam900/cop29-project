@@ -7,7 +7,7 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class OperationalsController extends Controller
+class UserOperationalsController extends Controller
 {
     /**
      * Display a listing of the resource.

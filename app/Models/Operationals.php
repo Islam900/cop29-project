@@ -16,7 +16,6 @@ class Operationals extends Model
         'period',
         'start_date',
         'end_date',
-        'zone',
         'in_out_use',
         'manufacturer',
         'hand_model',
@@ -32,7 +31,7 @@ class Operationals extends Model
         'bandwidth',
         'customs_clearance',
         'comments',
-        'data_sheet',
+        'read_status'
     ];
 
     public function user()

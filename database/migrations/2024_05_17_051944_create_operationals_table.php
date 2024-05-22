@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('period');
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('zone');
             $table->string('in_out_use');
             $table->string('manufacturer');
             $table->string('hand_model');
@@ -26,15 +25,15 @@ return new class extends Migration
             $table->string('belt_pack_model');
             $table->string('belt_pack_units');
             $table->string('power_output');
-            $table->string('antenna_height');
-            $table->string('antenna_gain');
+            $table->string('antenna_height')->nullable();
+            $table->string('antenna_gain')->nullable();
             $table->string('frequency_range_start');
             $table->string('frequency_range_end');
             $table->string('tuning_step');
             $table->string('bandwidth');
             $table->string('customs_clearance');
             $table->text('comments')->nullable();
-            $table->string('data_sheet');
+            $table->integer('read_status')->default(0);
             $table->timestamps();
         });
     }

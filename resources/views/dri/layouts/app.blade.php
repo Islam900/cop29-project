@@ -17,8 +17,8 @@
 </head>
 <body>
 <div class="main-wrapper">
-    @include('admin.layouts.partials.header')
-    @include('admin.layouts.partials.sidebar')
+    @include('dri.layouts.partials.header')
+    @include('dri.layouts.partials.sidebar')
 
     <!-- SideNav Section End -->
 
@@ -33,7 +33,7 @@
     <!-- Content Body End -->
 
     <!-- Footer Section Start -->
-    @include('admin.layouts.partials.footer')
+    @include('dri.layouts.partials.footer')
     <!-- Footer Section End -->
 
 </div>

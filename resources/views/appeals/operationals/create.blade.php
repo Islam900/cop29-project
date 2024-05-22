@@ -102,16 +102,6 @@
                             </div>
 
                             <div class="col-3 mb-6">
-                                <label class="form-label fw-600" for="zone">Zone</label>
-                                <select name="zone" class="form-control" id="zone">
-                                    <option value="">Select zone</option>
-                                    <option value="Blue zone">Blue zone</option>
-                                    <option value="Green zone">Green zone</option>
-                                    <option value="All locations">All locations</option>
-                                </select>
-                            </div>
-
-                            <div class="col-3 mb-6">
                                 <label class="form-label fw-600" for="in_out_use">Indoor or outdoor use</label>
                                 <select name="in_out_use" class="form-control" id="in_out_use" required>
                                     <option value="">Select use zone</option>
@@ -160,13 +150,13 @@
 
                             <div class="col-3 mb-6">
                                 <label class="form-label fw-600" for="antenna_height">Antenna height[m]</label>
-                                <input required type="number" id="antenna_height" maxlength="50" name="antenna_height"
+                                <input type="number" id="antenna_height" maxlength="50" name="antenna_height"
                                        class="form-control">
                             </div>
 
                             <div class="col-3 mb-6">
                                 <label class="form-label fw-600" for="antenna_gain">Antenna gain[dB]</label>
-                                <input required type="number" id="antenna_gain" maxlength="50" name="antenna_gain"
+                                <input type="number" id="antenna_gain" maxlength="50" name="antenna_gain"
                                        class="form-control">
                             </div>
 

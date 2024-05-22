@@ -44,15 +44,6 @@
                         <input required type="date" id="end_date" maxlength="50" name="end_date" class="form-control rdp-single-date">
                     </div>
                     <div class="col-3 mb-6">
-                        <label class="form-label fw-600" for="zone" required>Zone</label>
-                        <select name="zone" class="form-control" id="zone">
-                            <option value="">Select zone</option>
-                            <option value="Blue zone">Blue zone</option>
-                            <option value="Green zone">Green zone</option>
-                            <option value="All locations">All locations</option>
-                        </select>
-                    </div>
-                    <div class="col-3 mb-6">
                         <label class="form-label fw-600" for="vehicle_mounted">Vehicle Mounted / Flyaway</label>
                         <input required type="text" id="vehicle_mounted" maxlength="50" name="vehicle_mounted" class="form-control">
                     </div>
